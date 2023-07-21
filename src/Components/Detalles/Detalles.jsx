@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./Detalles.css";
 import { useNavigate, useParams } from "react-router-dom";
+import PokeballLogo from "./pokeball-logo.svg";
+import ImagenCarga from "/src/assets/img/Loading.gif";
+import Peso from "/src/assets/img/Weight.svg";
+import Altura from "/src/assets/img/Height.svg";
 
 const Detalles = () => {
   const { pokeid } = useParams();
@@ -46,11 +50,7 @@ const Detalles = () => {
 
   if (!pokeDet) {
     return (
-      <img
-        className="imgcargadet"
-        src="./src/assets/img/Loading.gif"
-        alt="pokeball cargando"
-      />
+      <img className="imgcargadet" src={ImagenCarga} alt="pokeball cargando" />
     );
   }
 
@@ -138,7 +138,7 @@ const Detalles = () => {
         <div className="bgpoke">
           <img
             style={{ width: "100%", height: "100%", opacity: "10%" }}
-            src="src/Components/Detalles/pokeball-logo.svg"
+            src={PokeballLogo}
             alt="pokeball"
           />
         </div>
@@ -185,7 +185,7 @@ const Detalles = () => {
                   alignItems: "center",
                 }}
               >
-                <img src="src/assets/img/Weight.svg" alt="peso" />
+                <img src={Peso} alt="peso" />
                 <span className="datosdet">
                   {(pokeDet.weight * 0.1).toFixed(2)} kg
                 </span>
@@ -201,7 +201,7 @@ const Detalles = () => {
                   alignItems: "center",
                 }}
               >
-                <img src="src/assets/img/Height.svg" alt="" />
+                <img src={Altura} alt="" />
                 <span className="datosdet">
                   {(pokeDet.height * 0.1).toFixed(2)} m
                 </span>
@@ -236,7 +236,7 @@ const Detalles = () => {
           </div>
           <h2
             className="texto"
-            style={{ color: color, fontSize: "16px", paddingTop: "20px" }}
+            style={{ color: color, fontSize: "16px", paddingTop: "30px" }}
           >
             Base Stats
           </h2>
